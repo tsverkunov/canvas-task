@@ -1,33 +1,74 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {useState} from 'react'
 import './App.css'
+import CanvasComponent from "./components/CanvasComponent/CanvasComponent.tsx";
+import Score from "./components/Score/Score.tsx";
+import ColorPicker from "./components/ColorPicker/ColorPicker.tsx";
+import SpeedControl from "./components/SpeedControl/SpeedControl.tsx";
+import SpellFrequency from "./components/SpellFrequency/SpellFrequency.tsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [speedRed, setSpeedRed] = useState(1);
+  const [speedGreen, setSpeedGreen] = useState(1);
+  const [spellFrequencyGreen, setSpellFrequencyGreen] = useState(1);
+  const [spellFrequencyRed, setSpellFrequencyRed] = useState(1);
+  const [redCount, setRedCount] = useState(0);
+  const [greenCount, setGreenCount] = useState(0);
+  const [visibleMenuGreen, setVisibleMenuGreen] = useState(false);
+  const [visibleMenuRed, setVisibleMenuRed] = useState(false);
+  const [colorSpellGreen, setColorSpellGreen] = useState('green');
+  const [colorSpellRed, setColorSpellRed] = useState('red');
+
+  const handleShowGreenMenu = () => {
+      setVisibleMenuGreen(!visibleMenuGreen);
+  }
+  const handleShowRedMenu = () => {
+      setVisibleMenuRed(!visibleMenuRed);
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h1>hogwarts</h1>
+      <Score
+        redCount={redCount}
+        greenCount={greenCount}
+      />
+      <div className="wrapper">
+        <div className="container">
+          <div className="group">
+            <SpeedControl speed={speedGreen} setSpeed={setSpeedGreen}/>
+            <SpellFrequency frequency={spellFrequencyGreen} setFrequency={setSpellFrequencyGreen}/>
+          </div>
+          <ColorPicker
+            title={'Цвет заклинания зеленого Мага:'}
+            visibleMenu={visibleMenuGreen}
+            color={colorSpellGreen}
+            setColor={setColorSpellGreen}
+          />
+        </div>
+        <CanvasComponent
+          speedRed={speedRed}
+          speedGreen={speedGreen}
+          spellFrequencyGreen={spellFrequencyGreen}
+          spellFrequencyRed={spellFrequencyRed}
+          setRedCount={setRedCount}
+          setGreenCount={setGreenCount}
+          colorSpellGreen={colorSpellGreen}
+          colorSpellRed={colorSpellRed}
+          showMenuGreen={handleShowGreenMenu}
+          showMenuRed={handleShowRedMenu}
+        />
+        <div className="container">
+          <div className="group">
+            <SpeedControl speed={speedRed} setSpeed={setSpeedRed}/>
+            <SpellFrequency frequency={spellFrequencyRed} setFrequency={setSpellFrequencyRed}/>
+          </div>
+          <ColorPicker
+            title={'Цвет заклинания красного Мага:'}
+            visibleMenu={visibleMenuRed}
+            color={colorSpellRed}
+            setColor={setColorSpellRed}/>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }

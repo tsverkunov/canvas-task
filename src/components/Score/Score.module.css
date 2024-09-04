@@ -1,0 +1,17 @@
+.score {
+    display: flex;
+    justify-content: space-around;
+    font-size: 70px;
+    line-height: 1;
+}
+
+.score p {
+    margin: 5px;
+}
+.redCount {
+    color: red;
+}
+
+.greenCount {
+    color: green;
+}

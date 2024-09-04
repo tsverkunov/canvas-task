@@ -1,5 +1,11 @@
+@font-face {
+    font-family: 'AA-Lumos-Caps';
+    src: url('assets/fonts/AA-Lumos-Caps.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: AA-Lumos-Caps , sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
