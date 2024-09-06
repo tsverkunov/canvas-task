@@ -32,8 +32,8 @@ function App() {
         redCount={redCount}
         greenCount={greenCount}
       />
-      <div className="wrapper">
-        <div className="container">
+      <main className="wrapper">
+        <section className="container">
           <div className="group">
             <SpeedControl speed={speedGreen} setSpeed={setSpeedGreen}/>
             <SpellFrequency frequency={spellFrequencyGreen} setFrequency={setSpellFrequencyGreen}/>
@@ -44,7 +44,7 @@ function App() {
             color={colorSpellGreen}
             setColor={setColorSpellGreen}
           />
-        </div>
+        </section>
         <CanvasComponent
           speedRed={speedRed}
           speedGreen={speedGreen}
@@ -57,7 +57,7 @@ function App() {
           showMenuGreen={handleShowGreenMenu}
           showMenuRed={handleShowRedMenu}
         />
-        <div className="container">
+        <section className="container">
           <div className="group">
             <SpeedControl speed={speedRed} setSpeed={setSpeedRed}/>
             <SpellFrequency frequency={spellFrequencyRed} setFrequency={setSpellFrequencyRed}/>
@@ -67,8 +67,8 @@ function App() {
             visibleMenu={visibleMenuRed}
             color={colorSpellRed}
             setColor={setColorSpellRed}/>
-        </div>
-      </div>
+        </section>
+      </main>
     </>
   )
 }
