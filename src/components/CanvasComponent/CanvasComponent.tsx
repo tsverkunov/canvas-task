@@ -26,7 +26,7 @@ const CanvasComponent = ({
                            showMenuRed
                          }: CanvasComponentProps) => {
   const widthCanvas = 900;
-  const heightCanvas = 700;
+  const heightCanvas = 600;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const circleRadius = 50;
